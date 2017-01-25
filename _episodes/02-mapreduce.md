@@ -24,7 +24,6 @@ Let's take a python function to double the value of a scalar:
 
 
 ~~~
-
  def f (x): 
    return x**2
 ~~~
@@ -35,7 +34,6 @@ Let's take a python function to double the value of a scalar:
 For instance to use this function:
 
 ~~~
-
  print(f(2))
 ~~~
 {: .python}
@@ -43,8 +41,8 @@ For instance to use this function:
 &nbsp;
 
 The same function can be written as lambda function:
-~~~
 
+~~~
  f = lambda x: x**2
 ~~~
 {: .python}
@@ -74,7 +72,7 @@ It is very often used with map-reduce (even if you can do without) in python and
 
 **Lambda functions = Anonymous functions**
 
-![LambdaFunction](../img/anonymousLambda.png)
+![LambdaFunction](img/anonymousLambda.png)
 
 > ## Challenge 1
 >
