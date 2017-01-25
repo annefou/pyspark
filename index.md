@@ -12,9 +12,12 @@ In this lesson, we introduce Big data analysis using PySpark.
 The Spark Python API (PySpark) exposes the Spark programming 
 model to Python. [Apache® Spark™](http://spark.apache.org/) is an open source and is one of the most popular Big Data frameworks for scaling up your tasks in a cluster. It was developed to utilize distributed, in-memory data structures to improve data processing speeds. 
 
+The goal of this lesson is to teach novice programmers to write python code using map-reduce programming model. 
+
 > ## Prerequisites
 >
 > A basic knowledge of python is recommended 
 > but you don't need to have any previous knowledge 
 > of big data analysis or [Apache Spark](http://spark.apache.org/).
 {: .prereq}
+

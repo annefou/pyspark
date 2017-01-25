@@ -40,6 +40,20 @@ h1, h2, h3 {
   display: block;
 }
 
+
+.image40 img {
+  width: 40%;
+  height: auto;
+  display: block;
+}
+
+
+.image50 img {
+  width: 40%;
+  height: auto;
+  display: block;
+}
+
 .image60 img {
   width: 60%;
   height: auto;
@@ -48,6 +62,13 @@ h1, h2, h3 {
 
 .image80 img {
   max-width: 80%;
+  height: auto;
+  display: block;
+}
+
+
+.image120 img {
+  max-width: 120%;
   height: auto;
   display: block;
 }
