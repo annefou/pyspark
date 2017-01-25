@@ -144,7 +144,7 @@ As you can see **both functions do exactly the same** and can be **used in the s
 
 **Lambda functions = Anonymous functions**
 
-![LambdaFunction](img/anonymousLambda.png)
+![LambdaFunction](../img/anonymousLambda.png)
 
 
 # Introduction to map reduce in python
