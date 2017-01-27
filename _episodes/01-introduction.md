@@ -42,34 +42,62 @@ Galaxy is a scientific workflow, data integration, and data and analysis persist
 make data intensive accessible to research scientists that do not have extensive computer programming experience.
 To learn more, take one of our [Galaxy tours](https://usegalaxy.org/tours).
 
+** For most of the images below, you can click to view a short video or get detailed documentation on the corresponding subject.**
 
+---
+
+***Login panel***
+![GalaxyLogin](/img/GalaxyLogin.png)
+
+---
 
 **Basic layout**
+![GalaxyLWelcome](/img/GalaxyWelcome.png)
 
-***login panel***
-
-Then show welcome page and explain the different panes.
+---
 
 ***Get help***
+[![GalaxyHelp](/img/GalaxyHelp.png)](https://wiki.galaxyproject.org/Learn)
+
+---
 
 **Upload data**
+[![GalaxyUpload](/img/GalaxyUpload.png)](https://vimeo.com/120901536)
 
-Show where to get data (upload data) or as we will be using here Data Libraries.
+---
 
 **Share Data**
+[![GalaxyShare](/img/GalaxyShare.png)](https://vimeo.com/75934770)
+
+---
 
 ***Data Libraries***
+[![GalaxyDataLibraries](/img/GalaxyDataLibraries.png)](https://wiki.galaxyproject.org/Admin/DataLibraries/Libraries)
 
-***Pages***
+---
 
 **Navigate histories**
+[![GalaxyHistories](/img/GalaxyHistories.png)](https://vimeo.com/76020876)
+
+---
 
 ## Introduction to pySpark jupyter notebook
 
 **Start a pyspark jupyter notebook**
 
+A Jupyter notebook can be started either existing dataset in your History or you can use our jupyter notebook template for python 3.
 
+- Click on "**Shared Data**", then on "**Data Libraries**" and finally on "**Jupyter notebooks**".
+- Tick the box "**template_ipython3.ipynb**" and then "**to History**".
+- Once imported go to your current History and open your notebook 
 
+[![GalaxyHistories](/img/GalaxyJupyter.png)](https://github.com/bgruening/galaxy-ipython)
+
+---
+
+Then you should get:
+
+![GalaxyHistories](/img/GalaxyJupyterWelcome.png)
 
 &nbsp;
 &nbsp;

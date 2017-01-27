@@ -13,6 +13,11 @@
   {% assign current = site.start_time %}
 
   <table class="table table-striped">
+     <tr>
+     <td class="col-md-1">00:00</td>
+     <td class="col-md-3"><a href="slides/intro/">What is Big-Data?</a></td>
+	 <td class="col-md-7"></td>
+	 </tr>
   {% for episode in site.episodes %}
     {% if episode.start %} {% comment %} Starting a new day? {% endcomment %}
       {% assign day = day | plus: 1 %}
