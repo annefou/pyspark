@@ -147,13 +147,15 @@ As you can see **both functions do exactly the same** and can be **used in the s
 ![LambdaFunction](../img/anonymousLambda.png)
 
 
-# Introduction to map reduce in python
+# map, filter and reduce in python
 
 ## Map
 
-Map takes a function f and an array as input parameters and outputs an array where f is applied to every element.
+Map takes a function f and an array as input parameters and outputs an array where f is applied to every element. 
+In this respect, using map is equivalent to for loops.
 
 For instance, to convert a list of temperatures in Celsius to a list of temperature in Kelvin:
+
 ~~~
  temp_c = [10, 3, -5, 25, 1, 9, 29, -10, 5]
  temp_K = list(map(lambda x: x + 273.15, temp_c))
@@ -177,23 +179,125 @@ It returns a new list with the elements changed by *func*.
 >
 > ## Challenge 2
 >
-> Start by 
->
+> Let's define a list of words:
+> list_words = ["big","small", "able", "about", "hairdresser", "laboratory"]
+> 
+> Use a map function to print the number of character of each word:
+> 
 > > ## Solution to Challenge 2
-> >
 > > 
 > > ~~~
-> > 
-> > 
-> > 
+> > print(list(map(len,list_words)))
 > > ~~~
 > > {: .python}
 > {: .solution}
 {: .challenge}
 
+## Filter
 
+As the name suggests, *filter* can be used to filter your data. It tests each element of your input data and returns 
+a subset of it for which a condition given by a function is TRUE. It does not modify your input data.
+~~~
+numbers = range(-15, 15)
+less_than_zero = list(filter(lambda x: x < 0, numbers))
+print(less_than_zero)
+~~~
+{: .python}
+~~~
+[-15, -14, -13, -12, -11, -10, -9, -8, -7, -6, -5, -4, -3, -2, -1] 
+~~~
+{: .output}
+
+>
+> ## Challenge 3
+>
+> Reuse *numbers* and extract all the odd numbers:
+>
+> numbers = range(-15, 15)
+>
+> > ## Solution to Challenge 3
+> > 
+> > ~~~
+> > odd_numbers = list(filter(lambda x: x%2==1, numbers))
+> > print(odd_numbers)
+> > ~~~
+> > {: .python}
+> > ~~~
+> > [-15, -13, -11, -9, -7, -5, -3, -1, 1, 3, 5, 7, 9, 11, 13]
+> > ~~~
+> > {: .output}
+> {: .solution}
+{: .challenge}
+
+## Reduce
+
+Reduce takes a function f and an array as input. The function f gets two input parameters that work on individual elements of the array. Reduce combines every two elements of the array using the function f. 
+Let's take an example:
+
+~~~
+# we define a list of integers
+numbers = [1, 4, 6, 2, 9, 10]
+# Define a new function combine
+# Convert x and y to strings and create a tuple from x,y
+def combine(x,y):
+  return "(" + str(x) + ", " + str(y) + ")"
+
+# Use reduce to apply combine to numbers
+from functools import reduce
+
+print(numbers)
+reduce(combine,numbers)
+
+~~~
+{: .python}
+
+- To use the python *reduce* function, you need to import it from *functools*.
+- To define combine, we haven't used a lambda function. With a Lambda function, we would have:
+
+~~~
+# we define a list of integers
+numbers = [1, 4, 6, 2, 9, 10]
+
+# Use reduce to combine numbers
+from functools import reduce
+
+print(numbers)
+reduce(lambda x,y: "(" + str(x) + ", " + str(y) + ")",numbers)
+~~~
+{: .python}
+
+>
+> ## Challenge 4
+> Let's define a string variable *sentence*:
+> ~~~
+> sentence = "Dis-moi ce que tu manges, je te dirai ce que tu es."
+> ~~~
+>  {: .python}
+> Compute the average word length of *sentence* 
+>
+> > ## Solution to Challenge 4
+> > First we remove punctuations from the sentence and replace it by a space:
+> > 
+> > ~~~
+> > import string
+> > string.punctuation
+> > no_punctuation=sentence.translate(str.maketrans("","",string.punctuation))
+> > 
+> > reduce(lambda x,y: x+y, map(lambda x: 1, no_punctuation.split()))
+> > 
+> > ~~~
+> > {: .python}
+> {: .solution}
+> Apply it to an entire text you upload yourself in your Galaxy history. 
+> Or use pre-loaded book available under the Data libraries available on the UIO Galaxy eduPortal (Share data --> Data Libraries).
+{: .challenge}
 
 &nbsp;
+> ## Remarks
+> The execution order for the reduce is straightforward here because everything is executed sequentially, meaning one after the other but we will
+> see it is very different for Spark or any other parallel reduce.
+{: .callout}
+
 &nbsp;
 &nbsp;
 &nbsp;
