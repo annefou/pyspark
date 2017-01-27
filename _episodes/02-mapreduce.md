@@ -269,14 +269,17 @@ reduce(lambda x,y: "(" + str(x) + ", " + str(y) + ")",numbers)
 >
 > ## Challenge 4
 > Let's define a string variable *sentence*:
+>
 > ~~~
 > sentence = "Dis-moi ce que tu manges, je te dirai ce que tu es."
 > ~~~
 >  {: .python}
-> Compute the average word length of *sentence* 
+> Compute the number of words in *sentence* 
 >
 > > ## Solution to Challenge 4
-> > First we remove punctuations from the sentence and replace it by a space:
+> > 1. First we remove punctuations from the sentence. 
+> > 2. Then we split the resulting sentence and *map* 1 to each word of the sentence.
+> > 3. The last step is to sum up to find the number of words in the sentence:
 > > 
 > > ~~~
 > > import string
@@ -288,11 +291,12 @@ reduce(lambda x,y: "(" + str(x) + ", " + str(y) + ")",numbers)
 > > ~~~
 > > {: .python}
 > {: .solution}
-> Apply it to an entire text you upload yourself in your Galaxy history. 
+> Apply it to an entire text to compute the total number of words of the text you upload yourself in your Galaxy history. 
 > Or use pre-loaded book available under the Data libraries available on the UIO Galaxy eduPortal (Share data --> Data Libraries).
 {: .challenge}
 
 &nbsp;
+
 > ## Remarks
 > The execution order for the reduce is straightforward here because everything is executed sequentially, meaning one after the other but we will
 > see it is very different for Spark or any other parallel reduce.
