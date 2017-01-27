@@ -16,7 +16,7 @@ keypoints:
 - "Spark and RDD"
 ---
 
-# Introduction to [A]Spark ([Slides](slides/spark))
+# Introduction to [A]Spark ([Slides](../slides/spark))
 
 
 > ## Challenge 
