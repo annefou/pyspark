@@ -47,7 +47,7 @@ To learn more, take one of our [Galaxy tours](https://usegalaxy.org/tours).
 ---
 
 ***Login panel***
-![GalaxyLogin](../img/GalaxyLogin.png)
+![GalaxyLogin](../img/Galaxylogin.png)
 
 ---
 
