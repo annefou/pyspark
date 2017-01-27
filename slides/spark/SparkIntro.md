@@ -37,7 +37,7 @@ template: title
 
 ## Welcome!
 
-.image20[![ResBaz](/slides/images/ResBazLogo.png)]
+.image20[![ResBaz](../images/ResBazLogo.png)]
 
 The easiest way to **navigate** this slide deck
 is **by hitting `[space]` on your keyboard**
@@ -71,7 +71,7 @@ template: title
 
 # What is Spark?
 
-.image20[![SparkLogo](/slides/images/spark-logo.png)] 
+.image20[![SparkLogo](../images/spark-logo.png)] 
 
 When we talk about Spark, we often add "Apache" or just the letter "a" in front of it. 
 
@@ -98,7 +98,7 @@ template: title
 - Network is abstracted: there is only implicit communication
 - PySpark is one of the API for Spark...
 
-.image120[![SP](/slides/images/SparkSWLayers.png)]
+.image120[![SP](../images/SparkSWLayers.png)]
 
 
 ---
@@ -122,7 +122,7 @@ template: title
 
 # And what about **Apache Flink**?
 
-.image20[![ResBaz](/slides/images/flink-logo.png)]
+.image20[![ResBaz](../images/flink-logo.png)]
 
 &nbsp;
 

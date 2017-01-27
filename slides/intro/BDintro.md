@@ -37,7 +37,7 @@ template: title
 
 ## Welcome!
 
-.image20[![ResBaz](/slides/images/ResBazLogo.png)]
+.image20[![ResBaz](../images/ResBazLogo.png)]
 
 The easiest way to **navigate** this slide deck
 is **by hitting `[space]` on your keyboard**
@@ -72,16 +72,7 @@ template: content
 
 Credit: [Mapped: The climate change conversation on Twitter](https://www.carbonbrief.org/mapped-the-climate-change-conversation-on-twitter)
 
-.image80[[![BD](/slides/images/BDWhy.png)](http://sna-analysis.s3.amazonaws.com/zoomify/cc-me-31mar.htm)]
-
-[//]: # ---
-[//]: # template: content
-
-[//]: # # Why Big Data?
-
-[//]: # Relationships and its adjacency matrix
-
-[//]: # .image80[[![BD](/slides/images/BDWhy2.png)](https://www.youtube.com/watch?v=J8baiKYJHMc&t=802s)]
+.image80[[![BD](../images/BDWhy.png)](http://sna-analysis.s3.amazonaws.com/zoomify/cc-me-31mar.htm)]
 
 ---
 template: content
@@ -90,14 +81,14 @@ template: content
 
 Let's start with a video...
 
-[![BDYT](/slides/images/BigDataYT.png)](https://www.youtube.com/watch?v=PI7SLOovO5c)
+[![BDYT](../images/BigDataYT.png)](https://www.youtube.com/watch?v=PI7SLOovO5c)
 
 ---
 template: content
 
 # Big Data - 3V
 
-.image80[![BD3V](/slides/images/BDVVV.png)]
+.image80[![BD3V](../images/BDVVV.png)]
 
 Terry Speed, 2014: 
 "... big data refers to things one can do at a large scale, that cannot be done
@@ -113,7 +104,7 @@ template: content
 **Big** is a fast moving target: kilobytes, megabytes,
 gigabytes, terabytes, petabytes, exabytes, zettabytes, ...
 
-.image60[![BD](/slides/images/BigData.png)] 
+.image60[![BD](../images/BigData.png)] 
 
 =  **Big data can be "small"... but typically is complex, unstructured, distributed**
 
@@ -125,7 +116,7 @@ template: content
 # Big Data life cycle
 
 &nbsp;
-.image120[[![BDLC](/slides/images/BDlifecycle.png)](http://www.journaldev.com/8795/introduction-to-hadoop)]
+.image120[[![BDLC](../images/BDlifecycle.png)](http://www.journaldev.com/8795/introduction-to-hadoop)]
 
 &nbsp;
 
@@ -160,7 +151,7 @@ And not only with respect to computing power
 template: title
 #  Map-reduce programming model
 
-![SP](/slides/images/map-reduce.png)
+![SP](../images/map-reduce.png)
 
 
 

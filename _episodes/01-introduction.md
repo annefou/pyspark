@@ -47,37 +47,37 @@ To learn more, take one of our [Galaxy tours](https://usegalaxy.org/tours).
 ---
 
 ***Login panel***
-![GalaxyLogin](/img/GalaxyLogin.png)
+![GalaxyLogin](../img/GalaxyLogin.png)
 
 ---
 
 **Basic layout**
-![GalaxyLWelcome](/img/GalaxyWelcome.png)
+![GalaxyLWelcome](../img/GalaxyWelcome.png)
 
 ---
 
 ***Get help***
-[![GalaxyHelp](/img/GalaxyHelp.png)](https://wiki.galaxyproject.org/Learn)
+[![GalaxyHelp](../img/GalaxyHelp.png)](https://wiki.galaxyproject.org/Learn)
 
 ---
 
 **Upload data**
-[![GalaxyUpload](/img/GalaxyUpload.png)](https://vimeo.com/120901536)
+[![GalaxyUpload](../img/GalaxyUpload.png)](https://vimeo.com/120901536)
 
 ---
 
 **Share Data**
-[![GalaxyShare](/img/GalaxyShare.png)](https://vimeo.com/75934770)
+[![GalaxyShare](../img/GalaxyShare.png)](https://vimeo.com/75934770)
 
 ---
 
 ***Data Libraries***
-[![GalaxyDataLibraries](/img/GalaxyDataLibraries.png)](https://wiki.galaxyproject.org/Admin/DataLibraries/Libraries)
+[![GalaxyDataLibraries](../img/GalaxyDataLibraries.png)](https://wiki.galaxyproject.org/Admin/DataLibraries/Libraries)
 
 ---
 
 **Navigate histories**
-[![GalaxyHistories](/img/GalaxyHistories.png)](https://vimeo.com/76020876)
+[![GalaxyHistories](../img/GalaxyHistories.png)](https://vimeo.com/76020876)
 
 ---
 
@@ -91,13 +91,13 @@ A Jupyter notebook can be started either existing dataset in your History or you
 - Tick the box "**template_ipython3.ipynb**" and then "**to History**".
 - Once imported go to your current History and open your notebook 
 
-[![GalaxyHistories](/img/GalaxyJupyter.png)](https://github.com/bgruening/galaxy-ipython)
+[![GalaxyHistories](../img/GalaxyJupyter.png)](https://github.com/bgruening/galaxy-ipython)
 
 ---
 
 Then you should get:
 
-![GalaxyHistories](/img/GalaxyJupyterWelcome.png)
+![GalaxyHistories](../img/GalaxyJupyterWelcome.png)
 
 &nbsp;
 &nbsp;
