@@ -5,7 +5,6 @@ class: middle
 
 ### Research Bazaar Oslo 2017
 
-Inspired from the [workshop on Data Science with \[a\] spark at CSCS](http://user.cscs.ch/getting_started/tutorials/2016/workshop_on_data_science_with_a_spark/index.html)
 <!-- Slides by Anne Fouilloux<br/> -->
 
 .footer[
@@ -73,6 +72,17 @@ template: content
 Credit: [Mapped: The climate change conversation on Twitter](https://www.carbonbrief.org/mapped-the-climate-change-conversation-on-twitter)
 
 .image80[[![BD](../images/BDWhy.png)](http://sna-analysis.s3.amazonaws.com/zoomify/cc-me-31mar.htm)]
+
+
+---
+template: content
+
+# Analyzing Twitter data became very popular...
+
+- How do people self-organize using micro-blogging (similarity of the tweets)?
+- How do people react during crisis situations?
+- Who are the influential users that start a topic/trend?
+- What type of tweets are retweeted more than others?
 
 ---
 template: content
