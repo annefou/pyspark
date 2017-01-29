@@ -5,7 +5,6 @@ class: middle
 
 ### Research Bazaar Oslo 2017
 
-Inspired from the [workshop on Data Science with \[a\] spark at CSCS](http://user.cscs.ch/getting_started/tutorials/2016/workshop_on_data_science_with_a_spark/index.html)
 <!-- Slides by Anne Fouilloux<br/> -->
 
 .footer[
@@ -51,8 +50,9 @@ template: content
 
 #  Questions
 
-- "What is Spark?"
-- "What is PySpark?"
+- "What is (Py)Spark?"
+- "How does it work?"
+- "What is a Resilient Distributed Dataset (RDD)?"
 
 ---
 template: content

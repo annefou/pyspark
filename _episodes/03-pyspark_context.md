@@ -10,8 +10,8 @@ questions:
 - "How can I create a RDD (Resilient Distributed Dataset)?"
 objectives:
 - "Learn about the terminology behind Spark, [a]Spark"
-- "Learn about Spark context"
 - "Learn about RDD"
+- "Learn about Spark context"
 keypoints:
 - "Spark and RDD"
 ---
@@ -30,7 +30,7 @@ To distribute data, Spark uses a framework called *Resilient Distributed Dataset
 
 For instance, if you read a file with Spark, it will automatically create a RDD. 
 
-But a RDD is **immutable** *object* so to modify it a new RDD needs to be created. 
+But a RDD is **immutable** so to modify it a new RDD needs to be created. 
 
 That is very helpful for **reproducibility**!
 
@@ -38,6 +38,10 @@ That is very helpful for **reproducibility**!
 
 To distribute computation, Spark API (Application Program Interface) available in multiple programming
 languages (Scala, Java, Python and R) provides several operators such as map and reduce. 
+
+The figure below shows the Spark Software Layers.
+
+![SP](../slides/images/SparkSWLayers.png)
 
 **Spark Core** contains the basic functionality of Spark; in particular the APIs that define RDDs and the 
 operations and actions that can be undertaken upon them (map, filter, reduce, etc.). 
@@ -53,13 +57,12 @@ and computations.
 - **Spark Streaming** for scalable, high-throughput, fault-tolerant stream processing of real-time data. 
 
 
-![SP](../slides/images/SparkSWLayers.png)
+The python Spark API for these different Software Layers can be found [here](https://spark.apache.org/docs/2.0.2/api/python/index.html).
 
-The Spark API for python can be found [here](https://spark.apache.org/docs/2.0.2/api/python/index.html).
 
 &nbsp;
 
-# Spark Execution: Spark Context
+# Spark Initialization: Spark Context
 
 Spark applications are run as independent sets of processes, coordinated by a **Spark Context** in a driver program.
 
@@ -67,7 +70,7 @@ Spark applications are run as independent sets of processes, coordinated by a **
 
 It may be automatically created (for instance if you call pyspark from the shells (the Spark context is then called *sc*).
 
-But it must be defined in your jupyter notebook:
+But we haven't set it up automatically in the Galaxy eduPortal, so you need to define it:
 
 ~~~
 from pyspark import SparkContext
@@ -77,9 +80,35 @@ sc = SparkContext('local', 'pyspark tutorial')
 
 &nbsp;
 
-- the driver (first argument) can be **local[*]**, **spark://", **yarn**, etc.
+- the driver (first argument) can be **local[*]**, **spark://", **yarn**, etc. What is available for you depends on how Spark has been
+deployed on the machine you use. 
 - the second argument is the application name and is a human readable string you choose.
 
+
+&nbsp;
+
+Because we do not specify any number of tasks for local, it means we will be using one only. To use a maximum of 2 tasks in parallel:
+
+
+~~~
+from pyspark import SparkContext
+sc = SparkContext('local[2]', 'pyspark tutorial') 
+~~~
+{: .python}
+
+If you wish to use all the available resource, you can simply use '*' i.e.
+
+
+
+~~~
+from pyspark import SparkContext
+sc = SparkContext('local[*]', 'pyspark tutorial') 
+~~~
+{: .python}
+
+Please note that within one session, you cannot define several Spark context! So if you have tried the 3 previous SparkContext examples, don't
+be surprised to get an error!
+ 
 &nbsp;
 
 > ## Deployment of Spark:
@@ -102,50 +131,180 @@ sc = SparkContext('local', 'pyspark tutorial')
 >
 {: .callout}
 
+# map/reduce
+
+Let's start from our previous *map* example where the goal was to convert temperature from Celcius to Kelvin.
+
+Here it is how it translates in PySpark.
+
 ~~~
-from pyspark import SparkContext
-sc = SparkContext('local', 'pyspark tutorial') 
-from numpy import random
-NUM_SAMPLES=1000000
-def sample(p):
-    x, y = random.random(), random.random()
-    return 1 if x*x + y*y < 1 else 0
-count = sc.parallelize(range(0, NUM_SAMPLES)).map(sample).reduce(lambda a, b: a + b)
-print((4.0 * count / NUM_SAMPLES))
+temp_c = [10, 3, -5, 25, 1, 9, 29, -10, 5]
+rdd_temp_c = sc.parallelize(temp_c)
+rdd_temp_K = rdd_temp_c.map(lambda x: x + 273.15).collect()
+print(rdd_temp_K)   
 ~~~
 {: .python}
 
-# Create a RDD from a file
+You recognize the *map* function (please note it is not the pure python *map* function but PySpark *map* function). 
+It acts here as the **transformation** function while *collect* is the **action**. It *pulls* all elements of 
+the RDD to the driver.
 
-# map/reduce
+> ## Remark:
+> 
+> It is often a very bad idea to pull all the elements of the RDD to the driver because we potentially handle very large
+> amount of data. So instead we prefer to use *take* as you can specify how many elements you wish to pull from the RDD.
+>
+> For instance to pull the first 3 elements only:
+>
+> ~~~
+> temp_c = [10, 3, -5, 25, 1, 9, 29, -10, 5]
+> rdd_temp_c = sc.parallelize(temp_c)
+> rdd_temp_K = rdd_temp_c.map(lambda x: x + 273.15).take(3)
+> print(rdd_temp_K)   
+> ~~~
+> {: .python}
+{: .callout}
 
-# Spark SQL
-
-# MLlib
-
-# GraphX
-
-# Spark Streaming
 
 > ## Challenge 
 >
 >  
 >
 > ~~~
+> def mod(x):
+>     import numpy as np
+>     return (x, np.mod(x, 2))
 > 
+> Nmax=1000
+> rdd = sc.parallelize(range(Nmax)).map(mod).take(5)
+> print(rdd)
 > ~~~
 > {: .python}
 >
+> Try the example above with different values for Nmax. Does it change the execution time if you take very large value for Nmax?
+>
+> Why?
 >
 > > ## Solution to Challenge 1
 > > 
-> >
-> > ~~~
+> > **Transformations** are executed after **actions** and here we select 5 values only (*take(5)*) so whatever the number of Nmax, 
+> > Spark executes exactly the same number of operations.
 > > 
+> > ~~~
+> > def mod(x):
+> >   import numpy as np
+> >   return (x, np.mod(x, 2))
+> > 
+> > Nmax= 10000000000
+> > rdd = sc.parallelize(range(Nmax)).map(mod).take(5)
+> > print(rdd)
 > > ~~~
 > > {: .python}
 > {: .solution}
 {: .challenge}
+
+
+
+Now let's take another example where we use *map* as the **transformation** and *reduce* for the action. 
+
+~~~
+# we define a list of integers
+numbers = [1, 4, 6, 2, 9, 10]
+
+rdd_numbers=sc.parallelize(numbers)
+
+# Use reduce to combine numbers
+rdd_reduce = rdd_numbers.reduce(lambda x,y: "(" + str(x) + ", " + str(y) + ")")
+print(rdd_reduce)
+~~~
+{: .python}
+
+&nbsp;
+
+# Create a RDD from a file
+
+Most of the time, we need to process data we have stored as "standard" files. Here we learn how to create a RDD from a file. 
+Import a file from the Data Library " in a new history (call it for instance "Gutenberg"):
+- Tab "Shared Data" --> "Data Libraries" -->  "Project Gutenberg"
+- Select a file (or the three of them if you wish)
+- Click to "To History" and import to a new History that you call "Gutenberg".
+- Go to your newly created History (click on the green box that appears on your screen)
+- Open a new jupyter notebook from your file and change the kernel froom python 2 to python 3.
+
+
+~~~
+from pyspark import SparkContext
+sc = SparkContext('local[2]', 'pyspark tutorial') 
+
+lines_rdd = sc.textFile(get(1))
+~~~
+{: .python}
+
+The method *textFile" load the file passed as an argument and returns a RDD. Please note that you may add 
+a second argument to specify the minimum number of partitions for your RDD. If not specified, you let Spark decides.
+
+In the following example, we load a text file as a RDD and counts how many times does each word appear.
+~~~
+from pyspark import SparkContext
+import str
+
+sc = SparkContext('local[2]', 'pyspark tutorial') 
+
+def noPunctuations(text):
+    """Removes punctuation and convert to lower case
+    Args:
+        text (str): A string.
+    Returns:
+        str: The cleaned up string.
+    """
+    return text.translate(str.maketrans("","",string.punctuation)).lower()
+
+lines_rdd = sc.textFile(get(1), 1)
+counts = lines_rdd.map(noPunctuations).flatMap(lambda x: x.split(' ')) \
+         .map(lambda x: (x, 1)) \
+		 .reduceByKey(lambda x, y: x+y)
+		 
+for (word, count) in counts.collect():
+   print(word,count)
+~~~
+{: .python}
+  
+&nbsp;
+
+> ## map vs. flatMap and reduce vs. reduceByKey:
+> 
+> In the previous example, we used *flatMap* as a **transformation** function and *reduceByKey* as an action.   
+>
+> *map*: It returns a new RDD by applying a function to each element of the RDD.   Function in map can return only one item.
+> *flatMap*:  It returns a new RDD by applying  a function to each element of the RDD, but output is flattened.
+> Also, function in flatMap can return a list of elements (0 or more)
+>
+> ~~~
+> sc.parallelize([3,4,5]).map(lambda x: range(1,x)).collect()
+> ~~~
+> {: .python} 
+> 
+> ~~~
+> [[1, 2], [1, 2, 3], [1, 2, 3, 4]]
+> ~~~
+> {: .output} 
+>
+> ~~~
+> sc.parallelize([3,4,5]).flatMap(lambda x: range(1,x)).collect()
+> ~~~
+> {: .python} 
+> 
+> ~~~
+> [1, 2, 1, 2, 3, 1, 2, 3, 4] 
+> ~~~
+> {: .output} 
+> 
+> *reduceByKey* is very often used as it combines values with the same key. In our example, we wanted to
+> count the number of occurence of the same word. A simple reduce would not differentiate the different words 
+> and would count the total number of words.
+>
+{: .callout}
+ 
 
 
 &nbsp;

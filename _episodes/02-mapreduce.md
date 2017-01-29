@@ -283,7 +283,6 @@ reduce(lambda x,y: "(" + str(x) + ", " + str(y) + ")",numbers)
 > > 
 > > ~~~
 > > import string
-> > string.punctuation
 > > no_punctuation=sentence.translate(str.maketrans("","",string.punctuation))
 > > 
 > > reduce(lambda x,y: x+y, map(lambda x: 1, no_punctuation.split()))
