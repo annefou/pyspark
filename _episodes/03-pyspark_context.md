@@ -381,6 +381,7 @@ players.registerTempTable("players")
 {: .python}
 
 We can then query our view; for instance to get the names of all the Teams:
+
 ~~~
 sqlc.sql("select distinct Team from players").show(10)
 ~~~
