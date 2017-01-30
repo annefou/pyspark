@@ -375,6 +375,7 @@ only showing top 20 rows
 {: .output}
 
 Then we can create a view of our DataFrame. The lifetime of this temporary table is tied to the SparkSession that was used to create this DataFrame.
+
 ~~~
 players.registerTempTable("players")
 ~~~
@@ -419,7 +420,6 @@ for name in teamNames:
     print(name)
 ~~~
 {: .python}
-
 
 
 &nbsp;
