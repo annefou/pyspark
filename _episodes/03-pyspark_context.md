@@ -423,16 +423,6 @@ for name in teamNames:
 {: .python}
 
 
-# MLlib
-
-see https://github.com/apache/spark
-
-# GraphX
-
-
-# Spark Streaming
-https://github.com/apache/spark
-
 &nbsp;
 &nbsp;
 &nbsp;
