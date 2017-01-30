@@ -244,6 +244,7 @@ The method *textFile" load the file passed as an argument and returns a RDD. Ple
 a second argument to specify the minimum number of partitions for your RDD. If not specified, you let Spark decides.
 
 In the following example, we load a text file as a RDD and counts how many times does each word appear.
+
 ~~~
 from pyspark import SparkContext
 import str
@@ -421,6 +422,16 @@ for name in teamNames:
 ~~~
 {: .python}
 
+
+# MLlib
+
+see https://github.com/apache/spark
+
+# GraphX
+
+
+# Spark Streaming
+https://github.com/apache/spark
 
 &nbsp;
 &nbsp;
