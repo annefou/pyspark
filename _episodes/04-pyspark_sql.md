@@ -128,7 +128,16 @@ for name in teamNames:
 ~~~
 {: .python}
 
-
+> ## Pandas
+> When in PySpark, there is also an easy option to convert Spark DataFrame to Pandas dataframe. 
+>
+> Pandas dataframes can also be converted to Spark dataframes.
+> 
+> ~~~
+> players.toPandas().head()
+> ~~~
+> {: .python}
+{: .callout}
 
 &nbsp;
 &nbsp;

@@ -50,7 +50,9 @@ The rest of Spark's libraries are built on top of the RDD and Spark Core:
 
 - **Spark SQL** for SQL and structured data processing.  Every database table is represented as an RDD and Spark SQL queries are transformed into Spark operations.
 - **MLlib** is a library of common machine learning algorithms implemented as Spark operations on RDDs. This library contains scalable learning algorithms like classifications, regressions, etc. 
-that require iterative operations across large data sets. 
+that require iterative operations across large data sets. **MLlib** will be deprecated to **ML**, the newly developed Spark Machine Learning toolset. 
+**ML** provides higher-level API built on top of **DataFrames** for constructing ML pipelines. Currently, not all Machine Learning algorithms implemented
+in **MLlib** are yet available in *Spark ML*. The pipeline concept is mostly inspired by the scikit-learn project.
 - **GraphX** is a collection of algorithms and tools for manipulating graphs and performing parallel graph operations 
 and computations. 
 
